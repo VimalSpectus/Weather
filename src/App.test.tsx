@@ -2,8 +2,18 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('check label and submit text', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const inputNode = screen.getByLabelText('Please Enter Conry Name');
+  expect(inputNode).toBeInTheDocument();
+  const aboutAnchorNode = screen.getByText(/Submit/i)
+  expect(aboutAnchorNode).toBeInTheDocument();
+});
+
+test('Input field disable and Enable', () => {
+  render(<App />);
+  const inputNode = screen.getByLabelText('Please Enter Conry Name');
+  expect(inputNode).toBeInTheDocument();
+  const aboutAnchorNode = screen.getByText(/Submit/i)
+  expect(aboutAnchorNode).toBeInTheDocument();
 });
